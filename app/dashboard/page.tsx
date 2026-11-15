@@ -19,12 +19,12 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      <main className="mx-auto max-w-5xl px-6 py-10">
-        <h1 className="text-5xl font-bold text-neutral-900">
+      <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
+        <h1 className="text-3xl font-bold text-neutral-900 sm:text-5xl">
           Puspita Finance
         </h1>
 
-        <p className="mt-1 text-xl text-neutral-500">
+        <p className="mt-1 text-lg text-neutral-700 sm:text-xl">
           Dashboard Keuangan
         </p>
 
@@ -32,21 +32,22 @@ export default function DashboardPage() {
           Selamat Datang, Puspita!
         </h2>
 
-        <p className="text-sm text-neutral-500">
+        <p className="text-sm text-neutral-700">
           Ringkasan keuangan usahamu bulan ini.
         </p>
 
         <section
           aria-label="Ringkasan keuangan"
-          className="mt-6 grid grid-cols-2 gap-6 lg:grid-cols-4"
+          className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
           {summary.map((item) => (
-            <div key={item.id}>
-              <p className="text-xs text-neutral-500">
-                {item.label}
-              </p>
+            <div
+              key={item.id}
+              className="rounded-lg border border-neutral-300 bg-white p-4"
+            >
+              <p className="text-sm text-neutral-700">{item.label}</p>
 
-              <p className="text-lg font-semibold text-neutral-900">
+              <p className="mt-1 text-lg font-semibold text-neutral-900">
                 {item.value}
               </p>
             </div>
@@ -54,17 +55,11 @@ export default function DashboardPage() {
         </section>
 
         <div className="mt-8">
-          <Button
-            label="Tambah Transaksi"
-            onClick={() => setIsOpen(true)}
-          />
+          <Button label="Tambah Transaksi" onClick={() => setIsOpen(true)} />
         </div>
       </main>
 
-      <TransactionCard
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-      />
+      <TransactionCard isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </div>
   );
 }

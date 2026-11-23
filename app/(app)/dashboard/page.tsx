@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Header from "../../components/midalogo";
-import Button from "../../components/button";
-import TransactionCard from "../../components/transactioncard";
+import Button from "@/components/button";
+import TransactionCard from "@/components/transactioncard";
 
 const summary = [
   { id: 1, label: "Saldo Usaha", value: "Rp 2.750.000" },
@@ -16,9 +15,7 @@ export default function DashboardPage() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-
+    <>
       <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
         <h1 className="text-3xl font-bold text-neutral-900 sm:text-5xl">
           Puspita Finance
@@ -60,6 +57,6 @@ export default function DashboardPage() {
       </main>
 
       <TransactionCard isOpen={isOpen} onClose={() => setIsOpen(false)} />
-    </div>
+    </>
   );
 }
